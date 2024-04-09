@@ -34,8 +34,6 @@ public:
 	int32 size();
 	bool empty();
 	void reSize();
-	void print();
-
 
 private:
 	T* _start;
@@ -46,10 +44,12 @@ private:
 template<typename T>
 inline void Stack<T>::push(T data)
 {
-	// 최대 배열 크기보다 커지면 리턴
+	// 최대 배열 크기보다 커지면 최대 크기 재할당
 	if (_idx > _limitIdx)
 	{
-		return;
+		resize();
+		_start[_idx] = data;
+		++_idx;
 	}
 
 	_start[_idx] = data;
@@ -65,7 +65,7 @@ inline void Stack<T>::pop()
 		return;
 	}
 
-	_start[_idx] = 0;
+	_start[_idx] = nullptr;
 	--_idx;
 }
 
@@ -106,14 +106,5 @@ inline void Stack<T>::reSize()
 	// 3. 기존 꺼 삭제
 	delete[] _start;
 	_start = newSpace;
-}
-
-template<typename T>
-inline void Stack<T>::print()
-{
-	for (int i = 0; i < _idx; ++i)
-	{
-		std::cout << _start[i] << std::endl;
-	}
 }
 
