@@ -1,5 +1,11 @@
 #pragma once
 
+
+/* ================================
+			Queue
+ ================================ */
+
+
 /*
 push() 스택에 쌓는다.
 pop()  스택 상단을 뺴낸다.
@@ -8,6 +14,8 @@ size() 스택 사이즈 몇인지
 empty() 스택이 비어있는지.
 */
 
+#define MAX_ARRAY_SIZE 5
+
 template<typename T>
 class Queue
 {
@@ -15,7 +23,7 @@ public:
 	Queue()
 		: _start(nullptr)
 		, _idx(-1)
-		, _limitIdx(5)
+		, _limitIdx(MAX_ARRAY_SIZE)
 	{
 		_start = new T[_limitIdx];
 	}
@@ -39,8 +47,8 @@ public:
 
 private:
 	T*			_start;
-	uint64		_idx;
-	uint64		_limitIdx;
+	int64		_idx;
+	int64		_limitIdx;
 };
 
 template<typename T>

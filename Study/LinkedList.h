@@ -1,5 +1,10 @@
 #pragma once
 
+/* ================================
+			LinkedList
+ ================================ */
+
+
 template<typename T>
 class LinkedList
 {
@@ -89,7 +94,7 @@ public:
 
 	private:
 		Node* _head;
-		int _idx;
+		int64 _idx;
 	};
 
 };
