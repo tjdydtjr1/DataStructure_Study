@@ -69,7 +69,7 @@ inline bool CircleQueue<T>::empty()
 template<typename T>
 inline bool CircleQueue<T>::full()
 {
-	if()
+	//if()
 
 	return false;
 }

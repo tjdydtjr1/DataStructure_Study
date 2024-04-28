@@ -5,23 +5,32 @@
 #include "Queue.h"
 
 
+// 생성자에서 할당했으면
+// 소멸자에서 제거하자
+template <typename T>
+class SmartPtr
+{
+public:
+    explicit SmartPtr(T* ptr = nullptr)  
+    {}
+
+    ~SmartPtr()
+    {
+        delete _data;  
+    }
+
+private:
+    T* _data;
+};
+
 
 int main()
 {
-	Queue<int> test;
-
-	test.push(1);
-	test.push(2);
-	test.push(3);
-	test.push(4);
-	test.push(5);
-
-	for (int i = 0; i < 5; ++i)
 	{
-		cout << *test.front() << endl;
-	}
+		int* a = new int(42); 
+		SmartPtr<int> b(a);    
 
-	cout << test.size() << endl;
+	}
 
 	return 0;
 }
