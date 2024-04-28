@@ -7,11 +7,13 @@
 
 // 생성자에서 할당했으면
 // 소멸자에서 제거하자
+
 template <typename T>
 class SmartPtr
 {
 public:
-    explicit SmartPtr(T* ptr = nullptr)  
+    explicit SmartPtr(T* ptr = nullptr) 
+        : _data(ptr)
     {}
 
     ~SmartPtr()
