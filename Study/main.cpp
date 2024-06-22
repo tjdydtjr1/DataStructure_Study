@@ -3,36 +3,23 @@
 #include "LinkedList.h" 
 #include "Stack.h"
 #include "Queue.h"
-
-
-// 생성자에서 할당했으면
-// 소멸자에서 제거하자
-
-template <typename T>
-class SmartPtr
-{
-public:
-    explicit SmartPtr(T* ptr = nullptr) 
-        : _data(ptr)
-    {}
-
-    ~SmartPtr()
-    {
-        delete _data;  
-    }
-
-private:
-    T* _data;
-};
+#include "CircleQueue.h"
+#include "BinaryTree.h"
 
 
 int main()
 {
-	{
-		int* a = new int(42); 
-		SmartPtr<int> b(a);    
+	BinaryTree a;
 
-	}
+	a.insert(5);
+	a.insert(2);
+	a.insert(3);
+	a.insert(4);
+	a.insert(7);
+	a.insert(6);
+
+	a.dataPrint();
+
 
 	return 0;
 }
