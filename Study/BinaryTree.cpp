@@ -16,23 +16,22 @@ void BinaryTree::erase(int data)
 
 }
 
-void BinaryTree::dataPrint(string name)
+void BinaryTree::dataPrint(int order)
 {
-	if (name == "INORDER")
+	switch (order)
 	{
-		inOrder(_node);
-	}
-	else if (name == "PREORDER")
-	{
-		preOrder(_node);
-	}
-	else if (name == "POSTORDER")
-	{
-		postOrder(_node);
-	}
-	else
-	{
-		preOrder(_node);
+		case 0:
+			inOrder(_node);
+			break;
+		case 1:
+			preOrder(_node);
+			break;
+		case 2:
+			postOrder(_node);
+		break;
+		default:
+			preOrder(_node);
+			break;
 	}
 
 }

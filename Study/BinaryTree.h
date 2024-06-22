@@ -13,6 +13,9 @@ erase() 삭제
 전위, 중위, 후위
 */
 
+#define IN_ORDER   0
+#define PRE_ORDER  1
+#define POST_ORDER 2
 
 struct Node
 {
@@ -30,7 +33,7 @@ public:
 	void insert(int data);
 	bool search(int data);
 	void erase(int data);
-	void dataPrint(string name = "PREORDER");
+	void dataPrint(int order = IN_ORDER);
 
 private:
 	Node* insertRecursive(Node* node, int data);
